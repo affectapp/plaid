@@ -326,33 +326,11 @@ pub struct AddressDetails {
 #[derive(Serialize, Deserialize, Clone, Copy, Debug)]
 #[serde(rename_all = "snake_case")]
 pub enum AccountType {
-    /// An account type holding cash, in which funds are deposited.
-    ///
-    /// Supported products for depository accounts are: Auth, Balance,
-    /// Transactions, Identity, Payment Initiation, and Assets.
+    Brokerage,
     Depository,
-
-    /// A credit card type account.
-    ///
-    /// Supported products for credit accounts are: Balance, Transactions,
-    /// Identity, and Liabilities.
     Credit,
-
-    /// A loan type account.
-    ///
-    /// Supported products for loan accounts are: Balance, Liabilities, and
-    /// Transactions.
     Loan,
-
-    /// An investment account.
-    ///
-    /// Supported products for investment accounts are: Balance and Investments.
     Investment,
-
-    /// Other or unknown account type.
-    ///
-    /// Supported products for other accounts are: Balance, Transactions,
-    /// Identity, and Assets.
     Other,
 }
 
