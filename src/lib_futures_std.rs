@@ -230,7 +230,7 @@ impl Client {
         &self,
         access_token: &str,
         account_id: &str,
-    ) -> Result<CreateProcessorTokenResponse, Error> {
+    ) -> Result<StripeCreateBankAccountTokenResponse, Error> {
         let body = json!({
             "client_id": &self.client_id,
             "secret": &self.secret,

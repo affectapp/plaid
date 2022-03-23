@@ -247,6 +247,19 @@ pub struct CreateProcessorTokenResponse {
     pub request_id: String,
 }
 
+/// The response from performing an `stripe_create_bank_account_token` request.
+#[derive(Deserialize, Clone, Debug)]
+pub struct StripeCreateBankAccountTokenResponse {
+    /// The verified Stripe bank account token ID. You can attach this token to a Stripe Customer
+    /// object, or create a charge directly on it.
+    pub stripe_bank_account_token: String,
+
+    /// A unique identifier for the request, which can be used for
+    /// troubleshooting. This identifier, like all Plaid identifiers, is case
+    /// sensitive.
+    pub request_id: String,
+}
+
 /// Supported languages.
 #[derive(Serialize, Clone, Copy, Debug)]
 #[serde(rename_all = "lowercase")]
