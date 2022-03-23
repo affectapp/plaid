@@ -222,6 +222,38 @@ impl Client {
         }
     }
 
+    /// Create Stripe bank account token.
+    ///
+    /// [/processor/stripe/bank_account_token/create]
+    #[allow(dead_code)]
+    pub async fn stripe_create_bank_account_token(
+        &self,
+        access_token: &str,
+        account_id: &str,
+    ) -> Result<CreateProcessorTokenResponse, Error> {
+        let body = json!({
+            "client_id": &self.client_id,
+            "secret": &self.secret,
+            "access_token": access_token,
+            "account_id": account_id,
+        });
+
+        let response = self
+            .client
+            .post(&format!(
+                "{}/processor/stripe/bank_account_token/create",
+                self.url
+            ))
+            .json(&body)
+            .send()
+            .await?;
+
+        match response.status() {
+            StatusCode::OK => Ok(response.json().await?),
+            _ => Err(Error::Api(response.json().await?)),
+        }
+    }
+
     /// Retrieve accounts
     ///
     /// [/accounts/get]

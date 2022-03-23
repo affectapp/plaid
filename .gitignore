@@ -6,5 +6,6 @@ Cargo.lock
 *.swp
 /.vscode
 /.idea
+*.iml
 
 .DS_Store

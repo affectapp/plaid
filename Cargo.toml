@@ -11,14 +11,12 @@ publish = false
 default = ["futures-std", "rustls-tls"]
 
 futures-std = ["reqwest"]
-futures-01 = ["reqwest09", "futures01"]
 
 native-tls = ["reqwest/native-tls"]
 rustls-tls = ["reqwest/rustls-tls"]
 
 [dependencies]
 chrono = { version = "0.4", features = ["serde"] }
-futures01 = { version = "0.3", package = "futures", optional = true }
 reqwest = { version = "0.11", features = ["json", "gzip"], optional = true }
 reqwest09 = { version = "0.11", package = "reqwest", optional = true }
 secrecy = "0.8"
